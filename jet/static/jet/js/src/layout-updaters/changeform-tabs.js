@@ -84,4 +84,13 @@ $(document).ready(function() {
     $('.change-form').each(function() {
         new ChangeFormTabsUpdater($(this)).run();
     });
+
+    // custom change form code which helps to auto-focus on error tab
+    $('.changeform-tabs > .changeform-tabs-item.errors').eq(0).find('a')[0].click();
+    $('.inline-group.compact').each((index, elem) => {
+        index = $(elem).find('.inline-related .errorlist').eq(0).parents(".inline-related").index('.inline-related');
+        if (index !== -1) {
+            $('.inline-navigation-item:not(.empty)').eq(index)[0].click();
+        }
+    });
 });
