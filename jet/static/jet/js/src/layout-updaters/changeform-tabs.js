@@ -89,7 +89,7 @@ $(document).ready(function() {
     $('.changeform-tabs > .changeform-tabs-item.errors').eq(0).find('a').each(function(index, elem) {
         elem.click();
     });
-    $('.inline-group.compact').each((index, elem) => {
+    $('.inline-group.compact').each(function(index, elem) {
         index = $(elem).find('.inline-related .errorlist').eq(0).parents(".inline-related").index('.inline-related');
         if (index !== -1) {
             $('.inline-navigation-item:not(.empty)').eq(index).each(function (index, elem) {
