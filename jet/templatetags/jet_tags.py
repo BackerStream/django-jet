@@ -60,6 +60,11 @@ def jet_is_checkbox(field):
 
 
 @register.filter
+def jet_menu_opened(url, base_path):
+    return url.startswith(base_path)
+
+
+@register.filter
 def jet_select2_lookups(field):
     if hasattr(field, 'field') and \
             (isinstance(field.field, ModelChoiceField) or isinstance(field.field, ModelMultipleChoiceField)):

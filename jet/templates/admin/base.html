@@ -209,7 +209,7 @@
                                     {% for model in app.items %}
                                         {% if model.has_perms %}
                                             <div>
-                                                <a{% if model.url %} href="{{ model.url }}"{% endif %} class="sidebar-link"{% if model.url_blank %} target="_blank"{% endif %}>
+                                                <a{% if model.url %} href="{{ model.url }}"{% endif %} class="sidebar-link {% if request.path|jet_menu_opened:model.url %}active{% endif %}"{% if model.url_blank %} target="_blank"{% endif %}>
                                                     <span class="sidebar-right">
                                                         <span class="sidebar-right-arrow icon-arrow-right"></span>
                                                     </span>
