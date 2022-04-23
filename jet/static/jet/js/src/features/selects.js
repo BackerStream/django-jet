@@ -212,7 +212,7 @@ Select2.prototype = {
         DropdownAdapter = Utils.Decorate(DropdownAdapter, MinimumResultsForSearch);
         DropdownAdapter = Utils.Decorate(DropdownAdapter, closeOnSelect);
 
-        $(document).on('select:init', 'select', function() {
+        $(document).on('select:init', 'select:not([data-autocomplete-light-function])', function() {
             var $select = $(this);
 
             if ($select.parents('.empty-form').length > 0) {
