@@ -222,10 +222,10 @@ Select2.prototype = {
             self.initSelect($select, DropdownAdapter);
         });
 
-        $('select:not(.select2-hidden-accessible,[data-autocomplete-light-function])').trigger('select:init');
+        $('select').trigger('select:init');
 
         $('.inline-group').on('inline-group-row:added', function(e, $inlineItem) {
-            $inlineItem.find('select:not(.select2-hidden-accessible,[data-autocomplete-light-function])').trigger('select:init');
+            $inlineItem.find('select').trigger('select:init');
         });
     },
     run: function() {
