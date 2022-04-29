@@ -81,6 +81,9 @@ RelatedPopups.prototype = {
         var self = this;
 
         $('.form-row').each(function() {
+            if ($(this).parents('.empty-form').length > 0) {
+                return;
+            }
             self.initLinksForRow($(this));
         });
 
@@ -173,6 +176,8 @@ RelatedPopups.prototype = {
                     }
                 });
 
+                $input.trigger('change').trigger('select:init');
+
                 break;
             case 'delete':
                 $input.find('option').each(function() {
@@ -183,6 +188,8 @@ RelatedPopups.prototype = {
                     }
                 });
 
+                $input.trigger('change').trigger('select:init');
+
                 break;
             default:
                 if ($input.is('select')) {
@@ -192,6 +199,8 @@ RelatedPopups.prototype = {
 
                     $input.append($option);
                     $option.attr('selected', true);
+
+                    $input.trigger('change').trigger('select:init');
                 } else if ($input.is('input.vManyToManyRawIdAdminField') && $input.val()) {
                     $input.val($input.val() + ',' + response.value);
                 } else if ($input.is('input')) {
@@ -200,10 +209,6 @@ RelatedPopups.prototype = {
 
                 break;
         }
-
-        $input[0].dispatchEvent(new Event('change'));
-        $input[0].dispatchEvent(new Event('select:init'));
-        $input.trigger('change').trigger('select:init');
     },
     overrideRelatedGlobals: function() {
         var self = this;
